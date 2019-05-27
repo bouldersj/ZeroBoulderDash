@@ -17,6 +17,22 @@ public class World {
 	private Handler handler  ; 
 	private int width , height ;
 	private int spawnX, spawnY ; 
+	/**
+	 * @return the spawnX
+	 */
+	public int getSpawnX() {
+		return spawnX;
+	}
+
+
+	/**
+	 * @return the spawnY
+	 */
+	public int getSpawnY() {
+		return spawnY;
+	}
+
+
 	private int  [][] tiles ; 
 	
 	public World (Handler  handler, String path) {

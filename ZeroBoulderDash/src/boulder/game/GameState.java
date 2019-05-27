@@ -20,10 +20,11 @@ public class GameState extends State {
 	 public GameState(Handler handler) {
 		// TODO Auto-generated constructor stub
 		 super(handler);
+		 
 		 //init level
 		 world = new World (handler, "res/worlds/level1");
 		 handler.setWorld(world); 
-		 player = new Player (handler, 100	,100) ; 
+		 player = new Player (handler, handler.getWorld().getSpawnX() ,handler.getWorld().getSpawnY()) ; 
 		 handler.getGameCamera().move(100, 200);
 	}
 

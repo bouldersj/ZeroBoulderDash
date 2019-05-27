@@ -6,6 +6,7 @@ package boulder.display;
 import boulder.entity.Entity;
 import boulder.game.Game;
 import boulder.game.Handler;
+import boulder.model.Tile;
 
 /**
  * @author liabe
@@ -68,10 +69,14 @@ public class GameCamera {
 	public void checkBackgroundSpace ()	{
 		if (xOffset <0 ) {
 			xOffset = 0 ; 
+		}else if(xOffset > handler.getWorld().getWidth() * Tile.TILE_WIDTH - handler.getWidth() ) {
+			xOffset = handler.getWorld().getWidth() * Tile.TILE_WIDTH - handler.getWidth();
 		}
 		
 		if (yOffset < 0 ) {
 			yOffset = 0 ; 
+		}else if (yOffset > handler.getWorld().getHeight() * Tile.TILE_HEIGHT - handler.getHeight()) {
+			yOffset = handler.getWorld().getHeight() * Tile.TILE_HEIGHT - handler.getHeight() ;
 		}
 	}
 	

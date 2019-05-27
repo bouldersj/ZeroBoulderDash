@@ -14,11 +14,9 @@ import boulder.game.Game;
  */
 public class Player extends Creature {
 	
-	private Game game ; 
 
 	public Player(Game game,float x, float y) {
-		super(x, y, Creature.DEFAULT_WIDTH, Creature.DEFAULT_WIDTH);
-		this.game = game ; 
+		super(game, x, y, Creature.DEFAULT_WIDTH, Creature.DEFAULT_WIDTH);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -27,6 +25,7 @@ public class Player extends Creature {
 		// TODO Auto-generated method stub 
 	getInput () ;
 	move();
+	game.getGameCamera().centerOnEntity(this);
 		
 		
 	}
@@ -61,15 +60,15 @@ public class Player extends Creature {
 	 */
 	public void boulderMan (Graphics g) {
 		if (game.getKeyManager().up) {
-			g.drawImage(Assets.playerUp, (int)x, (int)y,width,height, null);
+			g.drawImage(Assets.playerUp, (int)(x - game.getGameCamera().getxOffset()),(int)(y-game.getGameCamera().getyOffset()),width,height, null);
 		}else if (game.getKeyManager().down) {
-			g.drawImage(Assets.playerDown, (int)x, (int)y,width,height, null);
+			g.drawImage(Assets.playerDown, (int)(x - game.getGameCamera().getxOffset()),(int)(y-game.getGameCamera().getyOffset()),width,height, null);
 		}else if (game.getKeyManager().left) {
-			g.drawImage(Assets.playerLeft, (int)x, (int)y,width,height, null);
+			g.drawImage(Assets.playerLeft, (int)(x - game.getGameCamera().getxOffset()),(int)(y-game.getGameCamera().getyOffset()),width,height, null);
 		}else if (game.getKeyManager().right){
-			g.drawImage(Assets.playerRight, (int)x, (int)y,width,height, null);
+			g.drawImage(Assets.playerRight, (int)(x - game.getGameCamera().getxOffset()),(int)(y-game.getGameCamera().getyOffset()),width,height, null);
 		}else {
-			g.drawImage(Assets.player, (int)x, (int)y,width,height, null);
+			g.drawImage(Assets.player, (int)(x - game.getGameCamera().getxOffset()),(int)(y-game.getGameCamera().getyOffset()),width,height, null);
 		}
 			
 	}

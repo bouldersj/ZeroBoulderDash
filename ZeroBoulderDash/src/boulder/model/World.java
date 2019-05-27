@@ -5,18 +5,23 @@ package boulder.model;
 
 import java.awt.Graphics;
 
+import boulder.game.Game;
+
 /**
  * @author liabe
  *
  */
 public class World {
 	
+	
+	private Game game ; 
 	private int width , height ;
 	private int spawnX, spawnY ; 
 	private int  [][] tiles ; 
 	
-	public World (String path) {
+	public World (Game  game, String path) {
 		loadWorld(path);
+		this.game = game;  
 	}
 	
 	
@@ -27,7 +32,8 @@ public class World {
 	public void render (Graphics g)	{
 		for (int y = 0 ;y< height; y++ ) {
 			for (int x =0 ; x < width; x++) {
-				getTile(x,y).render(g, x * Tile.TILE_WIDTH, y * Tile.TILE_HEIGHT);
+				getTile(x,y).render(g,(int) (x * Tile.TILE_WIDTH - game.getGameCamera().getxOffset()), 
+						(int) (y * Tile.TILE_HEIGHT - game.getGameCamera().getyOffset()));
 				
 			}
 		}
@@ -43,6 +49,8 @@ public class World {
 		
 		return t ;
 	}
+	
+	
 	private void loadWorld(String path ) {
 		
 		String file = Utils.loadFileAsString(path);

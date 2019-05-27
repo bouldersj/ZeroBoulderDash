@@ -46,6 +46,8 @@ public class Display {
 		frame.setResizable(false);
 		
 		frame.setLocationRelativeTo(null);
+		
+		frame.setAlwaysOnTop(true);
 				
 		frame.setVisible(true);
 		

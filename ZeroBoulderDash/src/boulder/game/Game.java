@@ -11,6 +11,7 @@ import javax.net.ssl.KeyManager;
 
 import boulder.display.Assets;
 import boulder.display.Display;
+import boulder.display.GameCamera;
 
 /**
  * @author liabe
@@ -23,14 +24,15 @@ public class Game implements Runnable{
 	 * @param width
 	 * @param height
 	 */
-	private Display display ;
-	
-	public int width, height ; 
 	
 	public String title ; 
+
+	private Display display ;
 	
+	private int width, height ; 
+		
 	private Thread thread ; 
-	
+		
 	private boolean running = false ;
 
 	private BufferStrategy bs ; 
@@ -45,6 +47,12 @@ public class Game implements Runnable{
 	 * INPUT
 	 */
 	private boulder.controller.KeyManager keyManager ; 
+	
+	/**
+	 * camera
+	 *
+	 */
+	private GameCamera gameCamera ; 
 	
 	public Game(String title, int width, int height)	{
 		
@@ -68,6 +76,7 @@ public class Game implements Runnable{
 		display.getFrame().addKeyListener(keyManager);
 		Assets.init();
 		
+		gameCamera = new GameCamera(this, 0, 0);
 		gameState = new GameState(this);
 		menuState = new MenuState(this);
 		
@@ -166,6 +175,24 @@ public class Game implements Runnable{
 	 */
 	public boulder.controller.KeyManager getKeyManager()	{
 		return keyManager ; 
+	}
+	
+	public GameCamera getGameCamera () {
+		return gameCamera ; 
+	}
+	
+	/**
+	 * @return the width
+	 */
+	public int getWidth() {
+		return width;
+	}
+	/**
+	 * 
+	 * @return the height
+	 */
+	public int getHeight() {
+		return height ;
 	}
 		
 	public synchronized void start () {

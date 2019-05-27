@@ -23,7 +23,9 @@ public class GameState extends State {
 		 player = new Player (game, 100	,100) ; 
 		 
 		 //init level
-		 world = new World ("res/worlds/level1");
+		 world = new World (game, "res/worlds/level1");
+		 
+		 game.getGameCamera().move(100, 200);
 	}
 
 	@Override
@@ -32,6 +34,7 @@ public class GameState extends State {
 		
 		world.tick();
 		player.tick();
+
 		
 	}
 

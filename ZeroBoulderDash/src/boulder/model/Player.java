@@ -3,10 +3,11 @@
  */
 package boulder.model;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
+
 import boulder.display.Assets;
-import boulder.game.Game;
 import boulder.game.Handler;
 
 /**
@@ -20,6 +21,11 @@ public class Player extends Creature {
 	public Player(Handler handler,float x, float y) {
 		super(handler, x, y, Creature.DEFAULT_WIDTH, Creature.DEFAULT_WIDTH);
 		// TODO Auto-generated constructor stub
+		
+		bounds.x = 4; 
+		bounds.y = 8 ;
+		bounds.width = 25 ; 
+		bounds.height = 25 ; 
 	}
 
 	@Override
@@ -55,6 +61,11 @@ public class Player extends Creature {
 	public void render(Graphics g) {
 		// TODO Auto-generated method stub
 		boulderMan (g) ;
+		
+		g.setClip(Color.TRANSLUCENT, 0, 0, 0);
+		g.fillRect((int) (x+ bounds.x - handler.getGameCamera().getxOffset()),
+				(int) (y+ bounds.y - handler.getGameCamera().getyOffset()), 
+				bounds.width, bounds.height);
 	}
 	
 	/*

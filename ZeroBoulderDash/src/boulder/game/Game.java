@@ -5,9 +5,9 @@ package boulder.game;
 
 
 import java.awt.Graphics;
+
 import java.awt.image.BufferStrategy;
 
-import javax.net.ssl.KeyManager;
 
 import boulder.display.Assets;
 import boulder.display.Display;

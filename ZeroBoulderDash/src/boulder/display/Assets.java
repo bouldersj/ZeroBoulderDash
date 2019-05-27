@@ -4,7 +4,7 @@
 package boulder.display;
 
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
+
 
 /**
  * @author liabe

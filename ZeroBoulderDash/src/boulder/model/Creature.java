@@ -5,7 +5,6 @@ package boulder.model;
 
 
 import boulder.entity.Entity;
-import boulder.game.Game;
 import boulder.game.Handler;
 
 /**
@@ -37,8 +36,45 @@ public abstract class Creature extends Entity {
 	}
 	
 	public void move () {
-		x+= xMove ; 
-		y+=yMove ;
+		moveX();
+		moveY();
+	}
+	
+	public void moveX() {
+		if(xMove > 0 ) { // moving right
+			int tx = (int)(x + xMove + bounds.x + bounds.width ) / Tile.TILE_WIDTH ;
+			if (!collisonWithTile(tx, (int) (y + bounds.y )/ Tile.TILE_HEIGHT) 
+					&&  !collisonWithTile(tx, (int) (y + bounds.y + bounds.height )/ Tile.TILE_HEIGHT) ) {
+				x += xMove;
+			}
+		}else if (xMove <0) { // moving left 
+			int tx = (int)(x + xMove + bounds.x  ) / Tile.TILE_WIDTH ;
+			if (!collisonWithTile(tx, (int) (y + bounds.y )/ Tile.TILE_HEIGHT) 
+					&&  !collisonWithTile(tx, (int) (y + bounds.y + bounds.height )/ Tile.TILE_HEIGHT) ) {
+				x += xMove;
+			}
+		}
+	}
+	
+	public void moveY() {
+		if (yMove < 0) {//UP
+			int ty = (int)(y + yMove + bounds.y) / Tile.TILE_HEIGHT;
+			if (!collisonWithTile( (int) (x + bounds.x )/ Tile.TILE_WIDTH, ty) 
+					&& !collisonWithTile( (int) (x + bounds.x + bounds.width)/ Tile.TILE_WIDTH, ty)) {
+				y += yMove ;
+			}
+		}else if(yMove > 0){ //Down
+			int ty = (int)(y + yMove + bounds.y + bounds.height ) / Tile.TILE_HEIGHT;
+			if (!collisonWithTile( (int) (x + bounds.x )/ Tile.TILE_WIDTH, ty) 
+					&& !collisonWithTile( (int) (x + bounds.x + bounds.width)/ Tile.TILE_WIDTH, ty)) {
+				y += yMove ;
+				
+			} 
+		}
+	}
+	
+	protected boolean collisonWithTile (int x , int y ) {
+		return handler.getWorld().getTile(x, y).isSolid();
 	}
 	
 	/**

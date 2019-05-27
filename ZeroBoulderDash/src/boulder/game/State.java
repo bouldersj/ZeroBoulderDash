@@ -11,6 +11,9 @@ import java.awt.Graphics;
  */
 public abstract class State {
 	
+	protected Handler handler ; 
+
+	
 	private static State curreState = null ;
 	
  
@@ -23,10 +26,9 @@ public abstract class State {
 		return curreState; 
 	}
 	
-	protected Game game ; 
 	
-	public State (Game game) {
-		this.game = game ;
+	public State (Handler handler) {
+		this.handler = handler  ;
 	}
 
 	public abstract void tick ()  ;

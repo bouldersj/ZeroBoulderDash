@@ -17,15 +17,14 @@ public class GameState extends State {
 	private Player player ;
 	private World world ;
 	
-	 public GameState(Game game) {
+	 public GameState(Handler handler) {
 		// TODO Auto-generated constructor stub
-		 super(game);  
-		 player = new Player (game, 100	,100) ; 
-		 
+		 super(handler);
 		 //init level
-		 world = new World (game, "res/worlds/level1");
-		 
-		 game.getGameCamera().move(100, 200);
+		 world = new World (handler, "res/worlds/level1");
+		 handler.setWorld(world); 
+		 player = new Player (handler, 100	,100) ; 
+		 handler.getGameCamera().move(100, 200);
 	}
 
 	@Override

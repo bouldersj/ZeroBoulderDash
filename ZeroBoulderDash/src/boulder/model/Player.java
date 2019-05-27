@@ -24,8 +24,8 @@ public class Player extends Creature {
 		
 		bounds.x = 4; 
 		bounds.y = 8 ;
-		bounds.width = 25 ; 
-		bounds.height = 25 ; 
+		bounds.width = 20 ; 
+		bounds.height = 20 ; 
 	}
 
 	@Override
@@ -62,7 +62,7 @@ public class Player extends Creature {
 		// TODO Auto-generated method stub
 		boulderMan (g) ;
 		
-		g.setClip(Color.TRANSLUCENT, 0, 0, 0);
+		g.setClip(Color.TRANSLUCENT,0,0,0);
 		g.fillRect((int) (x+ bounds.x - handler.getGameCamera().getxOffset()),
 				(int) (y+ bounds.y - handler.getGameCamera().getyOffset()), 
 				bounds.width, bounds.height);

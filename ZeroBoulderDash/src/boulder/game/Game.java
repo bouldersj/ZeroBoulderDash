@@ -8,10 +8,10 @@ import java.awt.Graphics;
 
 import java.awt.image.BufferStrategy;
 
-
-import boulder.display.Assets;
+import boulder.controller.KeyManager;
 import boulder.display.Display;
 import boulder.display.GameCamera;
+import boulder.model.Assets;
 
 /**
  * @author liabe
@@ -46,7 +46,7 @@ public class Game implements Runnable{
 	/**
 	 * INPUT
 	 */
-	private boulder.controller.KeyManager keyManager ; 
+	private KeyManager keyManager ; 
 	
 	/**
 	 * camera
@@ -66,7 +66,7 @@ public class Game implements Runnable{
 		
 		this.title = title ;
 		
-		keyManager= new boulder.controller.KeyManager()	;
+		keyManager= new KeyManager()	;
 		 
 		
 	
@@ -79,16 +79,54 @@ public class Game implements Runnable{
 		display = new Display (title, width, height)	;
 		display.getFrame().addKeyListener(keyManager);
 		Assets.init();
+		
 		handler = new Handler (this); 
 		gameCamera = new GameCamera(handler, 0, 0);
+		
 		gameState = new GameState(handler);
 		menuState = new MenuState(handler);
 		
 		State.setState(gameState);
 
+	}
+	
+
+	
+	private void tick()	{
+		
+		keyManager.tick();
+		
+		if(State.getState() != null) {
+			State.getState().tick();
+		}
 		
 	}
-
+private void render ()	{
+		
+		
+		bs = display.getCanvas().getBufferStrategy();
+		
+		if (bs == null) {
+			display.getCanvas().createBufferStrategy(3);
+			return;
+		}
+		g = bs.getDrawGraphics();
+		
+		//clear screan 
+		g.clearRect(0,0,  width, height);
+		
+		//Drawing
+	
+		if(State.getState() != null) {
+			State.getState().render(g);
+		}
+		
+		//end drawing 
+		bs.show();
+		g.dispose();
+		
+	}
+	
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
@@ -96,7 +134,7 @@ public class Game implements Runnable{
 		init ();
 		
 		int fps = 60 ;
-		int oneSec = 1000000000;
+		int oneSec = 1000000000; 
 		double timePerTick = oneSec / fps ;
 		double delta = 0 ; 
 		long now ;
@@ -131,53 +169,13 @@ public class Game implements Runnable{
 		stop () ; 
 		
 	}
-	
 
-	private void render ()	{
-		
-		
-		bs = display.getCanvas().getBufferStrategy();
-		
-		if (bs == null) {
-			display.getCanvas().createBufferStrategy(3);
-			return;
-		}
-		g = bs.getDrawGraphics();
-		
-		//clear screan 
-		g.clearRect(0,0,  width, height);
-		
-		//Drawing
-	
-		
-		if(State.getState() != null) {
-			State.getState().render(g);
-		}
-		
-		//end drawing 
-		bs.show();
-		g.dispose();
-		
-	}
-	
-
-	
-	private void tick()	{
-		
-		keyManager.tick();
-		
-		if(State.getState() != null) {
-			State.getState().tick();
-		}
-		
-	}
-	
 	/**
 	 * 
 	 * @return keyManager
 	 * get Keys
 	 */
-	public boulder.controller.KeyManager getKeyManager()	{
+	public  KeyManager getKeyManager()	{
 		return keyManager ; 
 	}
 	
@@ -201,16 +199,19 @@ public class Game implements Runnable{
 		
 	public synchronized void start () {
 		
-		if (running)
-			return;
+		if (running) {
+			 return;
+		}
 		running = true ; 
 		thread = new Thread(this)	;
 		thread.start();
 	}
 	
 	public synchronized void stop () {
-		if(!running)
+		if(!running) {
 			return ;
+
+		}
 		running = false ;
 		try {
 			thread.join ()	;

@@ -3,10 +3,6 @@
  */
 package boulder.model;
 
-
-
-import boulder.display.Assets;
-
 /**
  * @author liabe
  *

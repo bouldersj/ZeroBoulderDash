@@ -17,22 +17,6 @@ public class World {
 	private Handler handler  ; 
 	private int width , height ;
 	private int spawnX, spawnY ; 
-	/**
-	 * @return the spawnX
-	 */
-	public int getSpawnX() {
-		return spawnX;
-	}
-
-
-	/**
-	 * @return the spawnY
-	 */
-	public int getSpawnY() {
-		return spawnY;
-	}
-
-
 	private int  [][] tiles ; 
 	
 	public World (Handler  handler, String path) {
@@ -46,10 +30,10 @@ public class World {
 	}
 	
 	public void render (Graphics g)	{
-		int xStart = (int) Math.max(0, handler.getGameCamera().getxOffset() / Tile.TILE_WIDTH) , 
-				xEnd = (int) Math.min(width, (handler.getGameCamera().getxOffset() + handler.getWidth()) / Tile.TILE_WIDTH + 1), 
-				yStart = (int)Math.max(0, handler.getGameCamera().getyOffset()/Tile.TILE_HEIGHT) ,
-				yEnd = (int)Math.min(height, (handler.getGameCamera().getyOffset()+handler.getHeight())/Tile.TILE_HEIGHT +1 ) ; 
+		int xStart = (int) Math.max(0, handler.getGameCamera().getxOffset() / Tile.TILE_WIDTH) ; 
+		int xEnd = (int) Math.min(width, (handler.getGameCamera().getxOffset() + handler.getWidth()) / Tile.TILE_WIDTH + 1);
+		int yStart = (int)Math.max(0, handler.getGameCamera().getyOffset()/Tile.TILE_HEIGHT) ;
+		int yEnd = (int)Math.min(height, (handler.getGameCamera().getyOffset()+handler.getHeight())/Tile.TILE_HEIGHT +1 ) ; 
 		
 		for (int y = yStart ;y< yEnd; y++ ) {
 			for (int x = xStart ; x < xEnd; x++) {
@@ -63,7 +47,7 @@ public class World {
 	
 	public Tile getTile(int x , int y) {
 		
-		if (x < 0 || y <0 || x >= width ||  y > height) {
+		if (x < 0 || y < 0 || x >= width ||  y >= height) {
 			
 			return Tile.dirtBackgroundTile ; 
 		}
@@ -95,7 +79,7 @@ public class World {
 		
 		for (int y =0 ; y < height ; y++ ) {
 			for (int x = 0 ; x < width ; x++) {
-				tiles [x] [y] = Utils.praseInt(tokens [(x+y * width)+ 4]);
+				tiles [x] [y] = Utils.praseInt(tokens [(x + y * width) + 4]);
 			}
 		}
 
@@ -108,5 +92,38 @@ public class World {
 		public int getHeight () {
 			return height;  
 		}
+
+
+		/**
+		 * @return the spawnX
+		 */
+		public int getSpawnX() {
+			return spawnX;
+		}
+
+
+		/**
+		 * @param spawnX the spawnX to set
+		 */
+		public void setSpawnX(int spawnX) {
+			this.spawnX = spawnX;
+		}
+
+
+		/**
+		 * @return the spawnY
+		 */
+		public int getSpawnY() {
+			return spawnY;
+		}
+
+
+		/**
+		 * @param spawnY the spawnY to set
+		 */
+		public void setSpawnY(int spawnY) {
+			this.spawnY = spawnY;
+		}
+
 
 }

@@ -44,8 +44,8 @@ public class KeyManager implements KeyListener{
 		
 		/**
 		 * for test
-		 */
-		System.out.println("pressed : "+e.getKeyCode());
+		 
+		System.out.println("pressed : "+e.getKeyCode());*/
 		
 	}
 

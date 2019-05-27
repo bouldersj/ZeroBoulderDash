@@ -1,7 +1,7 @@
 /**
  * 
  */
-package boulder.display;
+package boulder.model;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;

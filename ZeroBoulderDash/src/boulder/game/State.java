@@ -11,12 +11,9 @@ import java.awt.Graphics;
  */
 public abstract class State {
 	
-	protected Handler handler ; 
-
-	
 	private static State curreState = null ;
 	
- 
+	protected Handler handler ; 
 
 	public static void setState (State state) {
 		curreState = state ;

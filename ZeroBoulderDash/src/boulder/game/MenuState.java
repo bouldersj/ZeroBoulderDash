@@ -6,7 +6,7 @@ package boulder.game;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import boulder.display.Assets;
+import boulder.model.Assets;
 
 /**
  * @author liabe

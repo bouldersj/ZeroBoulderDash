@@ -3,11 +3,10 @@
  */
 package boulder.model;
 
-import java.awt.Color;
+
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 
-
-import boulder.display.Assets;
 import boulder.game.Handler;
 
 /**
@@ -15,22 +14,51 @@ import boulder.game.Handler;
  *
  */
 public class Player extends Creature {
-	
+	/*
+	 * Animation
+	 */
+	//private Animation animIdle ,animLeft , animRight , animDown , animUp ; 
 
+/**
+ * 
+ * @param handler
+ * @param x
+ * @param y
+ */
 	
 	public Player(Handler handler,float x, float y) {
-		super(handler, x, y, Creature.DEFAULT_WIDTH, Creature.DEFAULT_WIDTH);
+		super(handler, x, y, Creature.DEFAULT_WIDTH, Creature.DEFAULT_HEIGHT);
 		// TODO Auto-generated constructor stub
 		
 		bounds.x = 4; 
 		bounds.y = 8 ;
 		bounds.width = 20 ; 
 		bounds.height = 20 ; 
+		/*
+		 * animation speed and frame
+		 */
+		/*animIdle = new Animation(500, Assets.playerIdle);
+		animDown = new Animation(500, Assets.playerDown);
+		animLeft = new Animation(500, Assets.playerLeft);
+		animRight = new Animation(500, Assets.playerRight);
+		animUp = new Animation(500, Assets.playerUp);*/
+		
 	}
 
 	@Override
 	public void tick() {
-		// TODO Auto-generated method stub 
+		/*
+		 * animation tick
+		 */
+	
+	/*animIdle.tick();
+	animDown.tick();
+	animLeft.tick();
+	animRight.tick();
+	animUp.tick();*/
+	/*
+	 * Movement 
+	 */
 	getInput () ;
 	move();
 	handler.getGameCamera().centerOnEntity(this);
@@ -59,9 +87,8 @@ public class Player extends Creature {
 
 	@Override
 	public void render(Graphics g) {
-		// TODO Auto-generated method stub
-		boulderMan (g) ;
-		
+
+		boulderMan(g);
 		/*g.setClip(Color.TRANSLUCENT,0,0,0);
 		g.fillRect((int) (x+ bounds.x - handler.getGameCamera().getxOffset()),
 				(int) (y+ bounds.y - handler.getGameCamera().getyOffset()), 
@@ -73,17 +100,55 @@ public class Player extends Creature {
 	 */
 	public void boulderMan (Graphics g) {
 		if (handler.getKeyManager().up) {
-			g.drawImage(Assets.playerUp, (int)(x - handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()),width,height, null);
+			
+			g.drawImage(Assets.playerUp, (int)(x - handler.getGameCamera().getxOffset()),
+					(int)(y-handler.getGameCamera().getyOffset()),width,height, null);
+			
 		}else if (handler.getKeyManager().down) {
-			g.drawImage(Assets.playerDown, (int)(x - handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()),width,height, null);
+			
+			g.drawImage(Assets.playerDown, (int)(x - handler.getGameCamera().getxOffset()),
+					(int)(y-handler.getGameCamera().getyOffset()),width,height, null);
+			
 		}else if (handler.getKeyManager().left) {
-			g.drawImage(Assets.playerLeft, (int)(x - handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()),width,height, null);
+			
+			g.drawImage(Assets.playerLeft, (int)(x - handler.getGameCamera().getxOffset()),
+					(int)(y-handler.getGameCamera().getyOffset()),width,height, null);
+			
 		}else if (handler.getKeyManager().right){
-			g.drawImage(Assets.playerRight, (int)(x - handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()),width,height, null);
+			
+			g.drawImage(Assets.playerRight, (int)(x - handler.getGameCamera().getxOffset()),
+					(int)(y-handler.getGameCamera().getyOffset()),width,height, null);
+			
 		}else {
-			g.drawImage(Assets.player, (int)(x - handler.getGameCamera().getxOffset()),(int)(y-handler.getGameCamera().getyOffset()),width,height, null);
+			
+			g.drawImage(Assets.playerIdle,(int)(x - handler.getGameCamera().getxOffset()),
+					(int)(y-handler.getGameCamera().getyOffset()),width,height, null);
 		}
 			
 	}
+	
+/*	private BufferedImage getCurrentAnimationFrame() {
+		if (xMove < 0 ) {
+			
+			return animLeft.getCurrentFrame();
+			
+		}else if (xMove > 0) {
+			
+			return animRight.getCurrentFrame()	;
+			
+		}else if (yMove < 0 ) {
+			
+			return animUp.getCurrentFrame()	;
+			
+		}else if (yMove > 0 ) {
+			
+			return animDown.getCurrentFrame();
+			
+		}else {
+			
+			return animIdle.getCurrentFrame()	;
+		}
+			
+	}*/
 
-}
+}//player

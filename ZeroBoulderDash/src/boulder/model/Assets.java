@@ -20,21 +20,12 @@ public class Assets {
 							diamonds,
 							dirt, 
 							dirtBlack, 
-							boulder ,
-							playerLeft ,
-							playerRight ,
-							playerUp ,
-							playerDown,
-							playerIdle,
-							playerDying;
+							boulder ;
+						
 	
 	
-	/*public static  BufferedImage[]playerLeft ,
-								playerRight ,
-								playerUp ,
-								playerDown,
-								playerIdle,
-								playerDying;*/
+	public static  BufferedImage[]playerLeft ,playerIdle,playerDown,playerRight,playerUp;
+						
 
 
 	public static void init () {
@@ -45,34 +36,14 @@ public class Assets {
 		SpritesSheet titleMenue = new SpritesSheet(ImageLoader.loadImage("/sprites/titre.png"));
 
 		
-		/*playerIdle	= new BufferedImage[4];
+		playerIdle	= new BufferedImage[3];
 		playerDown	= new BufferedImage[3];
 		playerLeft 	= new BufferedImage[3];
 		playerRight	= new BufferedImage[3];
 		playerUp	= new BufferedImage[3];
-		playerDying = new BufferedImage[4];
-
 		
-		playerIdle [0]= dwarf.crop(0, 0, width, height);
-		playerIdle [1] = dwarf.crop(16, 0, width, height);
-		playerIdle [2] = dwarf.crop(32, 0, width, height);
-		playerIdle [3] = dwarf.crop(48, 0, width, height);
-
-		playerDown[0]= dwarf.crop(0, 64, width, height);
-		playerDown[1]= dwarf.crop(16, 64, width, height);
-		playerDown[2]= dwarf.crop(32, 64, width, height);
-
-		playerLeft[0]= dwarf.crop(0, 16, width, height);
-		playerLeft[1]= dwarf.crop(16, 16, width, height);
-		playerLeft[2]= dwarf.crop(32, 16, width, height);
-		
-		playerRight[0]=dwarf.crop(0, 48, width, height);
-		playerRight[1]=dwarf.crop(16, 48, width, height);
-		playerRight[2]=dwarf.crop(32, 48, width, height);
-
-		playerUp[0]=dwarf.crop(0, 32, width, height);
-		playerUp[1]=dwarf.crop(16, 32, width, height);
-		playerUp[2]=dwarf.crop(32, 32, width, height);
+		/*
+		playerDying = new BufferedImage[4]
 		
 		playerDying[0]=dwarf.crop(80, 0, width, height);
 		playerDying[1]=dwarf.crop(96, 0, width, height);
@@ -93,17 +64,29 @@ public class Assets {
 
 		title = titleMenue.crop(0,0,268,151);
 		
-		playerLeft  = dwarf.crop(0, 16, width, height);
+		playerLeft [0]  = dwarf.crop(0, 16, width, height);
+		playerLeft [1]  = dwarf.crop(16, 16, width, height);
+		playerLeft [2]  = dwarf.crop(32, 16, width, height);
+
 		
-		playerRight  = dwarf.crop(0, 48, width, height);
+		playerIdle [0]= dwarf.crop(0, 0, width, height);
+		playerIdle [1] = dwarf.crop(16, 0, width, height);
+		playerIdle [2] = dwarf.crop(48, 0, width, height);
+
 		
-		playerUp  = dwarf.crop(0, 32, width, height);
+		playerDown[0]= dwarf.crop(0, 64, width, height);
+		playerDown[1]= dwarf.crop(16, 64, width, height);
+		playerDown[2]= dwarf.crop(32, 64, width, height);
+
 		
-		playerDown  = dwarf.crop(0, 64, width, height);
-		
-		playerIdle  = dwarf.crop(0, 0, width, height);
-		
-		playerDying  = dwarf.crop(80, 0, width, height);
+		playerRight[0]=dwarf.crop(0, 48, width, height);
+		playerRight[1]=dwarf.crop(16, 48, width, height);
+		playerRight[2]=dwarf.crop(32, 48, width, height);
+
+
+		playerUp[0]=dwarf.crop(0, 32, width, height);
+		playerUp[1]=dwarf.crop(16, 32, width, height);
+		playerUp[2]=dwarf.crop(32, 32, width, height);
 		
 	}
 	

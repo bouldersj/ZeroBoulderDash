@@ -10,15 +10,14 @@ import java.awt.image.BufferedImage;
 import boulder.game.Handler;
 
 /**
- * @author liabe
+ * @author liabel
  *
  */
 public class Player extends Creature {
 	/*
 	 * Animation
 	 */
-	//private Animation animIdle ,animLeft , animRight , animDown , animUp ; 
-
+	private Animation animIdle ,animLeft , animRight , animDown , animUp ; 
 /**
  * 
  * @param handler
@@ -37,11 +36,11 @@ public class Player extends Creature {
 		/*
 		 * animation speed and frame
 		 */
-		/*animIdle = new Animation(500, Assets.playerIdle);
-		animDown = new Animation(500, Assets.playerDown);
-		animLeft = new Animation(500, Assets.playerLeft);
-		animRight = new Animation(500, Assets.playerRight);
-		animUp = new Animation(500, Assets.playerUp);*/
+		animLeft = new Animation(200, Assets.playerLeft);
+		animIdle = new Animation(500, Assets.playerIdle);
+		animDown = new Animation(200, Assets.playerDown);
+		animRight = new Animation(200, Assets.playerRight);
+		animUp = new Animation(200, Assets.playerUp);
 		
 	}
 
@@ -50,12 +49,11 @@ public class Player extends Creature {
 		/*
 		 * animation tick
 		 */
-	
-	/*animIdle.tick();
-	animDown.tick();
 	animLeft.tick();
 	animRight.tick();
-	animUp.tick();*/
+	animDown.tick();
+	animUp.tick();
+	animIdle.tick();
 	/*
 	 * Movement 
 	 */
@@ -88,6 +86,7 @@ public class Player extends Creature {
 	@Override
 	public void render(Graphics g) {
 
+
 		boulderMan(g);
 		/*g.setClip(Color.TRANSLUCENT,0,0,0);
 		g.fillRect((int) (x+ bounds.x - handler.getGameCamera().getxOffset()),
@@ -101,33 +100,34 @@ public class Player extends Creature {
 	public void boulderMan (Graphics g) {
 		if (handler.getKeyManager().up) {
 			
-			g.drawImage(Assets.playerUp, (int)(x - handler.getGameCamera().getxOffset()),
+			g.drawImage(getCurrentAnimationFrame(), (int)(x - handler.getGameCamera().getxOffset()),
 					(int)(y-handler.getGameCamera().getyOffset()),width,height, null);
 			
 		}else if (handler.getKeyManager().down) {
 			
-			g.drawImage(Assets.playerDown, (int)(x - handler.getGameCamera().getxOffset()),
+			g.drawImage(getCurrentAnimationFrame(), (int)(x - handler.getGameCamera().getxOffset()),
 					(int)(y-handler.getGameCamera().getyOffset()),width,height, null);
 			
 		}else if (handler.getKeyManager().left) {
 			
-			g.drawImage(Assets.playerLeft, (int)(x - handler.getGameCamera().getxOffset()),
+			g.drawImage(getCurrentAnimationFrame(), (int)(x - handler.getGameCamera().getxOffset()),
 					(int)(y-handler.getGameCamera().getyOffset()),width,height, null);
 			
 		}else if (handler.getKeyManager().right){
 			
-			g.drawImage(Assets.playerRight, (int)(x - handler.getGameCamera().getxOffset()),
+			g.drawImage(getCurrentAnimationFrame(), (int)(x - handler.getGameCamera().getxOffset()),
 					(int)(y-handler.getGameCamera().getyOffset()),width,height, null);
 			
 		}else {
 			
-			g.drawImage(Assets.playerIdle,(int)(x - handler.getGameCamera().getxOffset()),
+			g.drawImage(getCurrentAnimationFrame(),(int)(x - handler.getGameCamera().getxOffset()),
 					(int)(y-handler.getGameCamera().getyOffset()),width,height, null);
 		}
 			
 	}
 	
-/*	private BufferedImage getCurrentAnimationFrame() {
+	private BufferedImage getCurrentAnimationFrame() {
+		
 		if (xMove < 0 ) {
 			
 			return animLeft.getCurrentFrame();
@@ -146,9 +146,9 @@ public class Player extends Creature {
 			
 		}else {
 			
-			return animIdle.getCurrentFrame()	;
+			return animIdle.getCurrentFrame();
 		}
 			
-	}*/
+	}
 
 }//player

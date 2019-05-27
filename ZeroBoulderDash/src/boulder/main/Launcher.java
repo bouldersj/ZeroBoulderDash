@@ -17,7 +17,7 @@ public class Launcher {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Game game = new Game("boulder dash", 400, 400);
+		Game game = new Game("boulder dash", 800, 600);
 		game.start();
 		
 

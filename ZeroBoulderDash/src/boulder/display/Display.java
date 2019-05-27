@@ -62,7 +62,7 @@ public class Display {
 		canvas.setFocusable(false);
 		
 		canvas.setBackground(Color.black);
-		
+				
 		frame.add(canvas);
 		
 		frame.pack();

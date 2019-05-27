@@ -62,10 +62,10 @@ public class Player extends Creature {
 		// TODO Auto-generated method stub
 		boulderMan (g) ;
 		
-		g.setClip(Color.TRANSLUCENT,0,0,0);
+		/*g.setClip(Color.TRANSLUCENT,0,0,0);
 		g.fillRect((int) (x+ bounds.x - handler.getGameCamera().getxOffset()),
 				(int) (y+ bounds.y - handler.getGameCamera().getyOffset()), 
-				bounds.width, bounds.height);
+				bounds.width, bounds.height);*/
 	}
 	
 	/*

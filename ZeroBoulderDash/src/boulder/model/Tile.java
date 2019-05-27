@@ -5,6 +5,7 @@ package boulder.model;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 /**
  * @author liabe
@@ -13,6 +14,8 @@ import java.awt.image.BufferedImage;
 public class Tile {
 	
 	public static Tile [] tiles = new Tile[256];
+	
+	//public ArrayList <Tile> tiles = new ArrayList<Tile> () ;
 	
 	public static Tile dirtBackgroundTile = new DirtBackgroundTile (0)	;
 	

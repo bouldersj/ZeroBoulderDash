@@ -5,6 +5,7 @@ package boulder.display;
 
 import boulder.entity.Entity;
 import boulder.game.Game;
+import boulder.game.Handler;
 
 /**
  * @author liabe
@@ -12,26 +13,28 @@ import boulder.game.Game;
  */
 public class GameCamera {
 	
-	private Game game ; 
+	private Handler handler ; 
 	private float xOffset , yOffset ; 
 	
-	public GameCamera (Game game, float xOffset, float yOffset) {
-		this.game = game ; 
+	public GameCamera (Handler handler, float xOffset, float yOffset) {
+		this.handler = handler ; 
 		this.xOffset = xOffset ;
 		this.yOffset = yOffset ;
 		
 	}
 	
-	public void centerOnEntity(Entity e) {
-		xOffset = e.getX() - game.getWidth() / 2 +e.getWidth() / 2 ;
-		yOffset = e.getY() - game.getHeight() / 2 + e.getHeight() /2 ;
 
+	public void centerOnEntity(Entity e) {
+		xOffset = e.getX() - handler.getWidth() / 2 +e.getWidth() / 2 ;
+		yOffset = e.getY() - handler.getHeight() / 2 + e.getHeight() /2 ;
+		checkBackgroundSpace();
 	}
 	
 	//ammout
 	public void move (float xAmt,float yAmt) {
 		xOffset += xAmt ; 
 		yOffset += yAmt ; 
+		checkBackgroundSpace();
 	}
 
 	/**
@@ -61,5 +64,16 @@ public class GameCamera {
 	public void setyOffset(float yOffset) {
 		this.yOffset = yOffset;
 	}
+	
+	public void checkBackgroundSpace ()	{
+		if (xOffset <0 ) {
+			xOffset = 0 ; 
+		}
+		
+		if (yOffset < 0 ) {
+			yOffset = 0 ; 
+		}
+	}
+	
 
 }

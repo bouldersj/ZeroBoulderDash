@@ -59,7 +59,7 @@ public class World {
 			}
 		}
 		
-	}
+	} 
 	
 	public Tile getTile(int x , int y) {
 		
@@ -71,6 +71,7 @@ public class World {
 		
 		Tile t = Tile.tiles[tiles[x][y]];
 		
+		
 		if (t == null ) {
 			return Tile.dirtTile;
 		}
@@ -79,7 +80,7 @@ public class World {
 	}
 	
 	
-	private void loadWorld(String path ) {
+		private void loadWorld(String path ) {
 		
 		String file = Utils.loadFileAsString(path);
 		
@@ -97,8 +98,15 @@ public class World {
 				tiles [x] [y] = Utils.praseInt(tokens [(x+y * width)+ 4]);
 			}
 		}
-		
+
 
 	}
+		public int getWidth () {
+			return width ; 
+		}
+		
+		public int getHeight () {
+			return height;  
+		}
 
 }

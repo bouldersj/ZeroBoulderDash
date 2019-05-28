@@ -4,6 +4,7 @@
 package boulder.main;
 
 import boulder.game.Game;
+import boulder.game.MenuState;
 
 /**
  * @author liabe
@@ -17,11 +18,11 @@ public class Launcher {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		Game game = new Game("boulder dash", 800, 600);
 		
-		//MenuState menu = new MenuState(null);
+		
+		MenuState menu = new MenuState(null);
 		//menu.menu();
-		game.start();
+		
 		
 
 	}

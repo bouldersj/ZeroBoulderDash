@@ -95,6 +95,30 @@ public class MenuState extends State{
 		b1.setBackground(Color.lightGray);
 		b1.setFont(fontEntered);
 		b1.setBounds(550, 240, 150, 40);
+		b1.addActionListener(new ActionListener() { public void actionPerformed (ActionEvent e) {
+			
+			Game game = new Game("boulder dash", 800, 600);
+			
+			
+			game.start();
+			f.setVisible(false);
+			
+			
+		}});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		b2.setBackground(Color.lightGray);
 		b2.setFont(fontEntered);
@@ -116,7 +140,7 @@ public class MenuState extends State{
 		f.setSize(800,600);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setResizable(false);
-		
+		f.setLocationRelativeTo(null);
 		
 		lab.setIcon(img);
 		lab.setBounds(0, 0, 800, 600);

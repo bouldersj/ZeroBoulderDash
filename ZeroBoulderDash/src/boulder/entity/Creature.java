@@ -1,11 +1,11 @@
 /**
  * 
  */
-package boulder.model;
+package boulder.entity;
 
 
-import boulder.entity.Entity;
 import boulder.game.Handler;
+import boulder.model.Tile;
 
 /**
  * @author liabe

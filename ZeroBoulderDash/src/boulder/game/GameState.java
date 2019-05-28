@@ -5,7 +5,6 @@ package boulder.game;
 
 import java.awt.Graphics;
 
-import boulder.model.Player;
 import boulder.model.World;
 
 /**
@@ -14,7 +13,7 @@ import boulder.model.World;
  */
 public class GameState extends State {
 	
-	private Player player ;
+	//private Player player ;
 	private World world ;
 	
 	 public GameState(Handler handler) {
@@ -22,15 +21,15 @@ public class GameState extends State {
 		 //init level
 		 world = new World (handler, "res/worlds/level1.txt");
 		 handler.setWorld(world); 
-		 player = new Player (handler, handler.getWorld().getSpawnX() ,handler.getWorld().getSpawnX()) ; 
 		 handler.getGameCamera().move(100, 200);
+		// player = new Player (handler, handler.getWorld().getSpawnX() ,handler.getWorld().getSpawnX()) ; 
 		 
 	}
-
+ 
 	@Override
 	public void tick() {
 		world.tick();
-		player.tick();
+		//player.tick();
 
 		
 	}
@@ -41,7 +40,7 @@ public class GameState extends State {
 		//Tile.tiles[0].render(g, 0, 0);
 		
 		world.render(g);
-		player.render(g);
+		//player.render(g);
 
 	}
 	

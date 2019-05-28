@@ -5,6 +5,7 @@ package boulder.model;
 
 import java.awt.Graphics;
 
+import boulder.entity.EntityManager;
 import boulder.game.Handler;
 
 /**
@@ -19,14 +20,26 @@ public class World {
 	private int spawnX, spawnY ; 
 	private int  [][] tiles ; 
 	
+	/*
+	 * Entities
+	 */
+	private EntityManager entityManager ; 
+	
 	public World (Handler  handler, String path) {
 		this.handler = handler ; 
+		/*
+		 * loading Entities
+		 */
+		entityManager = new EntityManager(handler, new Player (handler, 0,0));
 		loadWorld(path);
+		entityManager.getPlayer().setX(spawnX);
+		entityManager.getPlayer().setY(spawnY);
+
 	}
 	
 	
 	public void tick ()	{
-		
+		entityManager.tick();
 	}
 	
 	public void render (Graphics g)	{
@@ -41,7 +54,9 @@ public class World {
 						(int) (y * Tile.TILE_HEIGHT - handler.getGameCamera().getyOffset()));
 				
 			}
-		}
+		}//Entities 
+		
+		entityManager.render(g);
 		
 	} 
 	
@@ -79,7 +94,7 @@ public class World {
 		
 		for (int y =0 ; y < height ; y++ ) {
 			for (int x = 0 ; x < width ; x++) {
-				tiles [x] [y] = Utils.praseInt(tokens [(x + y * width) + 4]);
+				tiles [x] [y] = Utils.praseInt(tokens [(x + y * width) + 4]); // 3 like 3 Tiles
 			}
 		}
 

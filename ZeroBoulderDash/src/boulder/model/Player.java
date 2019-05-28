@@ -7,6 +7,7 @@ package boulder.model;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
+import boulder.entity.Creature;
 import boulder.game.Handler;
 
 /**
@@ -37,7 +38,7 @@ public class Player extends Creature {
 		 * animation speed and frame
 		 */
 		animLeft = new Animation(200, Assets.playerLeft);
-		animIdle = new Animation(500, Assets.playerIdle);
+		animIdle = new Animation(300, Assets.playerIdle);
 		animDown = new Animation(200, Assets.playerDown);
 		animRight = new Animation(200, Assets.playerRight);
 		animUp = new Animation(200, Assets.playerUp);

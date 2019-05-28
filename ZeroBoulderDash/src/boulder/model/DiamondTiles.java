@@ -7,6 +7,8 @@ package boulder.model;
  * @author liabe
  *
  */
+
+
 public class DiamondTiles extends Tile {
 
 	public DiamondTiles( int id) {

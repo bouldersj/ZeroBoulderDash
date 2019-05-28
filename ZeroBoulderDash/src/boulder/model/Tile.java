@@ -15,7 +15,6 @@ public class Tile {
 	
 	public static Tile [] tiles = new Tile[256];
 	
-	//public ArrayList <Tile> tiles = new ArrayList<Tile> () ;
 	
 	public static Tile dirtBackgroundTile = new DirtBackgroundTile (0)	;
 	

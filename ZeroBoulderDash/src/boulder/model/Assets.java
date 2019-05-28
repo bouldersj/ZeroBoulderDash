@@ -71,7 +71,7 @@ public class Assets {
 		
 		playerIdle [0]= dwarf.crop(0, 0, width, height);
 		playerIdle [1] = dwarf.crop(16, 0, width, height);
-		playerIdle [2] = dwarf.crop(48, 0, width, height);
+		playerIdle [2] = dwarf.crop(0, 0, width, height);
 
 		
 		playerDown[0]= dwarf.crop(0, 64, width, height);

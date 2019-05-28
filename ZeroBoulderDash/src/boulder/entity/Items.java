@@ -10,7 +10,7 @@ import boulder.model.Tile;
 /**
  * @author liabe
  *
- */
+ */////testing 
 public abstract class Items extends Entity{
 	
 public static final float DEFAULT_SPEED = 4.0f;

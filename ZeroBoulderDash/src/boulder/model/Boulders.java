@@ -12,6 +12,8 @@ import boulder.game.Handler;
  * @author liabe
  *
  */
+
+//////testing 
 public class Boulders extends Items{
 
 	public Boulders(Handler handler, float x, float y, int width, int height) {

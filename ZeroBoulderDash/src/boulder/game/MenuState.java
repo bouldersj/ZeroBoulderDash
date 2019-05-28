@@ -36,7 +36,7 @@ public class MenuState extends State{
 	
 	public void menu (Graphics g)	{
 
-		g.setColor(Color.LIGHT_GRAY);
+		g.setColor(Color.YELLOW);
 		g.fillRect(130, 180, 130, 40 );
 		g.fillRect(130, 230, 130, 40);
 		g.fillRect(130, 280, 130, 40);

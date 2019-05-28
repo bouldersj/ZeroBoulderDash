@@ -18,13 +18,13 @@ public class Tile {
 	
 	public static Tile dirtBackgroundTile = new DirtBackgroundTile (0)	;
 	
-	public static Tile dirtTile = new DirtTile (1)	;
+	//public static Tile dirtTile = new DirtTile (1)	;
 	
-	public static Tile boulderTile = new BoulderTile (2)	;
+	//public static Tile boulderTile = new BoulderTile (2)	;
 	
 	public static Tile wallTile = new WallTile (3)	;
 	
-	public static Tile diamondTiles = new DiamondTiles (4);
+	//public static Tile diamondTiles = new DiamondTiles (4);
 
 
 
@@ -44,7 +44,7 @@ public class Tile {
 		tiles[id] = this ; 
 		
 	}
-	public void tik() {
+	public void tick() {
 		
 	}
 	

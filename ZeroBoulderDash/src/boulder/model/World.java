@@ -30,11 +30,16 @@ public class World {
 		/*
 		 * loading Entities
 		 */
-		entityManager = new EntityManager(handler, new Player (handler, 0,0));
+		entityManager = new EntityManager(handler, new Player (handler,0,0) );
+		
+		entityManager.addEntity(new BoulderEntity(handler, 100, 200, width, height));
+
+		
 		loadWorld(path);
 		entityManager.getPlayer().setX(spawnX);
 		entityManager.getPlayer().setY(spawnY);
-
+		
+	
 	}
 	
 	
@@ -72,7 +77,7 @@ public class World {
 		
 		
 		if (t == null ) {
-			return Tile.dirtTile;
+			return Tile.dirtBackgroundTile;
 		}
 		
 		return t ;
@@ -139,6 +144,15 @@ public class World {
 		public void setSpawnY(int spawnY) {
 			this.spawnY = spawnY;
 		}
+
+
+		/**
+		 * @return the entityManager
+		 */
+		public EntityManager getEntityManager() {
+			return entityManager;
+		}
+		
 
 
 }

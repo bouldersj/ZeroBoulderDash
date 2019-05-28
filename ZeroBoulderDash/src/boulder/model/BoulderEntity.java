@@ -14,9 +14,9 @@ import boulder.game.Handler;
  */
 
 //////testing 
-public class Boulders extends Items{
+public class BoulderEntity extends Items{
 
-	public Boulders(Handler handler, float x, float y, int width, int height) {
+	public BoulderEntity(Handler handler, float x, float y, int width, int height) {
 		super(handler, x, y, Tile.TILE_WIDTH, Tile.TILE_HEIGHT);
 	}
 
@@ -29,7 +29,8 @@ public class Boulders extends Items{
 	@Override
 	public void render(Graphics g) {
 		// TODO Auto-generated method stub
-		g.drawImage(Assets.boulder,(int) (x - handler.getGameCamera().getxOffset()),(int) (y - handler.getGameCamera().getyOffset()), width, height, null); 
+		g.drawImage(Assets.boulder,(int) (x - handler.getGameCamera().getxOffset()),
+				(int) (y - handler.getGameCamera().getyOffset()), width, height, null); 
 	}
 
 

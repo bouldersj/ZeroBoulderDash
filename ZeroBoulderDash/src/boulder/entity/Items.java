@@ -20,19 +20,19 @@ public static final float DEFAULT_SPEED = 4.0f;
 	
 	protected float speed ; 
 	
-	protected float xMove , yMove ; 
+	protected float yMove ; 
 	
 	public Items(Handler handler, float x, float y, int width, int height) {
 		super(handler, x, y, width, height);
 		// TODO Auto-generated constructor stub
 		speed = DEFAULT_SPEED ; 
-		xMove =0 ; 
 		yMove = 0 ; 
 	}
 		
 		public void move () {
-			//moveX();
-			falling();
+			if (!checkEntityCollinsion(0f, yMove)) {
+				falling();
+			}
 		}
 		
 		public void falling() {
@@ -67,21 +67,6 @@ public static final float DEFAULT_SPEED = 4.0f;
 		public void setSpeed(float speed) {
 			this.speed = speed;
 		}
-
-		/**
-		 * @return the xMove
-		 */
-		public float getxMove() {
-			return xMove;
-		}
-
-		/**
-		 * @param xMove the xMove to set
-		 */
-		public void setxMove(float xMove) {
-			this.xMove = xMove;
-		}
-
 		/**
 		 * @return the yMove
 		 */

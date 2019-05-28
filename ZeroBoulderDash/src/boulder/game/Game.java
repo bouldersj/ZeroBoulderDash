@@ -43,7 +43,7 @@ public class Game implements Runnable{
 	 * States
 	 */
 	private State gameState; 
-	private State menuState;
+	//private State menuState;
 	/**
 	 * INPUT
 	 */
@@ -85,10 +85,10 @@ public class Game implements Runnable{
 		gameCamera = new GameCamera(handler, 0, 0);
 		
 		gameState = new GameState(handler);
-		menuState = new MenuState(handler);
+		//menuState = new MenuState(handler);
 		
-	//	State.setState(gameState);
-		State.setState(menuState);
+		State.setState(gameState);
+		//State.setState(menuState);
 
 	}
 	

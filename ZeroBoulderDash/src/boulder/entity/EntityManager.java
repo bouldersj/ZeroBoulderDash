@@ -7,6 +7,8 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 import boulder.game.Handler;
+import boulder.model.BoulderEntity;
+import boulder.model.BoulderTile;
 import boulder.model.Player;
 
 /**
@@ -24,6 +26,7 @@ public class EntityManager {
 		this.handler = handler ; 
 		this.player = player ; 
 		entities = new ArrayList<Entity>();
+		addEntity(player);
 	}
 	
 	public void tick () {
@@ -32,14 +35,12 @@ public class EntityManager {
 			e.tick();
 		}
 		
-		player.tick();
 	}
 	
 	public void render (Graphics g)	{
 		for  (Entity e : entities) {
 			e.render(g);
 		}
-		player.render(g);
 	}
 	
 	public void addEntity(Entity e) {
@@ -80,12 +81,14 @@ public class EntityManager {
 	public ArrayList<Entity> getEntities() {
 		return entities;
 	}
-
+ 
 	/**
 	 * @param entities the entities to set
 	 */
 	public void setEntities(ArrayList<Entity> entities) {
 		this.entities = entities;
 	}
+
+	
 
 }

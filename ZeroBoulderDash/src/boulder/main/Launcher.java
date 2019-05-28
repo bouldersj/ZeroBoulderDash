@@ -18,6 +18,9 @@ public class Launcher {
 		// TODO Auto-generated method stub
 		
 		Game game = new Game("boulder dash", 800, 600);
+		
+		//MenuState menu = new MenuState(null);
+		//menu.menu();
 		game.start();
 		
 

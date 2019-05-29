@@ -13,4 +13,6 @@ public interface TickRender {
 	
 	public abstract void tick ();
 	public abstract void render (Graphics g);
+	public abstract void die ();
+	
 }

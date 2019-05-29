@@ -13,14 +13,13 @@ import boulder.model.Tile;
  */
 public abstract class Creature extends Entity {
 	
-	public static final int DEFAULT_HEALTH = 10 ; 
+	
 	
 	public static final float DEFAULT_SPEED = 4.0f;
 	
 	public static final int DEFAULT_WIDTH = 32, 
 							DEFAULT_HEIGHT = 32 ; 
 	
-	protected int health ;
 	
 	protected float speed ; 
 	
@@ -28,7 +27,6 @@ public abstract class Creature extends Entity {
 
 	public Creature(Handler handler, float x, float y, int width, int height) {
 		super(handler, x, y, width, height);
-		health = DEFAULT_HEALTH ; 
 		speed = DEFAULT_SPEED;
 		xMove =0 ; 
 		yMove = 0 ; 
@@ -38,6 +36,7 @@ public abstract class Creature extends Entity {
 	public void move () {
 		if (!checkEntityCollinsion(xMove, 0f)) {
 			moveX();
+			
 	}
 		
 		if (!checkEntityCollinsion(0f, yMove)) {

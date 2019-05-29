@@ -8,7 +8,7 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 import boulder.game.Handler;
-//import boulder.model.BoulderTile;
+
 import boulder.model.Player;
 
 /**
@@ -20,6 +20,18 @@ public class EntityManager {
 	private Handler handler ; 
 	private Player player ; 
 	private ArrayList<Entity> entities ; 
+/*	private Comparator<Entity> renderSorter = new Comparator<Entity>() {
+
+		@Override
+		public int compare(Entity a, Entity b) {
+
+			if (a.getY() < b.getY()) {
+				return -1;
+			}
+		return 1 ;
+
+		}
+	};*/
 	
 	public EntityManager (Handler handler, Player player) {
 		this.handler = handler ; 
@@ -32,8 +44,13 @@ public class EntityManager {
 		
 		for  (int i = 0; i < entities.size(); i++) {
 			Entity e = entities.get(i);
-			e.tick();
+			e.tick(); 
+			if (!e.isActive()) {
+				entities.remove(e);
+			}
 		}
+		
+		//entities.sort(renderSorter);
 
 	}
 	
@@ -46,6 +63,9 @@ public class EntityManager {
 	public void addEntity(Entity e) {
 		entities.add(e);
 	}
+	public void RemoveEntity(Entity e) {
+		entities.remove(e);
+	}
 
 	/**
 	 * @return the handler
@@ -53,6 +73,8 @@ public class EntityManager {
 	public Handler getHandler() {
 		return handler;
 	}
+	
+	
 
 	/**
 	 * @param handler the handler to set

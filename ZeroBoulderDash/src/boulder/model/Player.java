@@ -5,9 +5,11 @@ package boulder.model;
 
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 import boulder.entity.Creature;
+import boulder.entity.Entity;
 import boulder.game.Handler;
 
 /**
@@ -61,9 +63,56 @@ public class Player extends Creature {
 	getInput () ;
 	move();
 	handler.getGameCamera().centerOnEntity(this);
+	
+	CheckDash(); 
+	
+	}
+	
+	private void CheckDash () {
+		
+		Rectangle cb = getCollisionBounds(0, 0) ;
+		Rectangle ca = new Rectangle () ;
+		int arSize = 32 ;
+		ca.width = arSize ; 
+		ca.height = arSize ; 
+		
+		if (handler.getKeyManager().up) {
+			ca.x = cb.x + cb.width / 2 - arSize /2 ; 
+			ca.y = cb.y  - arSize ; 
+
+		} else if (handler.getKeyManager().down) {
+			ca.x = cb.x + cb.width / 2 - arSize /2 ; 
+			ca.y = cb.y  + cb.height ; 
+
+		}else if (handler.getKeyManager().left) {
+			ca.x = cb.x  - arSize; 
+			ca.y = cb.y  - cb.height / 2 - arSize /2  ; 
+
+		}else if (handler.getKeyManager().right) {
+			ca.x = cb.x  + cb.width; 
+			ca.y = cb.y  + cb.height / 2 - arSize /2  ;  
+
+		}else {
+			return ; 
+		}
+		
+		
+		for (Entity e : handler.getWorld().getEntityManager().getEntities()) {
+			if (e.equals(this)) 
+				continue;
+			if (e.getCollisionBounds(0	, 0).intersects(ca)) {
+				e.hurt(1);
+				return ;
+			}
+		}
 		
 		
 	}
+
+	@Override
+	public void die() {
+		// TODO Auto-generated method stub
+	} 
 	
 	private void getInput () {
 		
@@ -151,5 +200,6 @@ public class Player extends Creature {
 		}
 			
 	}
+
 
 }//player

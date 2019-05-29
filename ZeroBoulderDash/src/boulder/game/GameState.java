@@ -19,7 +19,7 @@ public class GameState extends State {
 	 public GameState(Handler handler) {
 		 super(handler); 
 		 //init level
-		 world = new World (handler, ("res/worlds/level3.txt"));
+		 world = new World (handler, ("res/worlds/level4.txt"));
 		 handler.setWorld(world); 
 		 handler.getGameCamera().move(100, 200);
 		// player = new Player (handler, handler.getWorld().getSpawnX() ,handler.getWorld().getSpawnX()) ; 

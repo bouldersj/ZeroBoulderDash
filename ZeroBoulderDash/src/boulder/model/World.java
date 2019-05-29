@@ -35,6 +35,13 @@ public class World {
 		entityManager.addEntity(new BoulderEntity(handler, 100, 200, width, height));
 		entityManager.addEntity(new DiamondEntity(handler, 100, 250, width, height));
 		entityManager.addEntity(new DirtEntity(handler, 100, 300, width, height));
+		entityManager.addEntity(new DirtEntity(handler, 100, 300 + 32, width, height));
+		entityManager.addEntity(new DirtEntity(handler, 100, 300 + 32 *2, width, height));
+		entityManager.addEntity(new DirtEntity(handler, 100, 300 + 32 * 3 , width, height));
+		entityManager.addEntity(new DirtEntity(handler, 100, 300 + 32 *4 , width, height));		
+		entityManager.addEntity(new DirtEntity(handler, 100, 300 + 32 * 5 , width, height));
+		entityManager.addEntity(new DirtEntity(handler, 100, 300 + 32 * 6 , width, height));
+
 		
 
 		

@@ -27,6 +27,12 @@ public class DirtEntity extends StaticItem {
 	@Override
 	public void tick() {
 		// TODO Auto-generated method stub
+		//remove();
+	}
+	
+	@Override
+	public void die() {
+		// TODO Auto-generated method stub
 		
 	}
 
@@ -37,5 +43,7 @@ public class DirtEntity extends StaticItem {
 				(int) (y - handler.getGameCamera().getyOffset()), width, height, null); 
 		
 	}
+
+	
 
 }

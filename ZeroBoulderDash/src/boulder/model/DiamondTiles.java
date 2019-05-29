@@ -6,7 +6,7 @@ package boulder.model;
 /**
  * @author liabe
  *
- */
+ *
 
 
 public class DiamondTiles extends Tile {
@@ -17,3 +17,4 @@ public class DiamondTiles extends Tile {
 	}
 
 }
+*/

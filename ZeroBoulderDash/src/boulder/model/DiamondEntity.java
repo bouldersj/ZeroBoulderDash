@@ -12,10 +12,7 @@ import boulder.game.Handler;
  * @author liabe
  *
  */
-
-//////testing 
-public class BoulderEntity extends Items{
-	
+public class DiamondEntity extends Items{
 	private static boolean isDestructible;
 	private static boolean canMove;
 
@@ -24,7 +21,7 @@ public class BoulderEntity extends Items{
 		canMove = true;
 	}
 
-	public BoulderEntity(Handler handler, float x, float y, int width, int height) {
+	public DiamondEntity(Handler handler, float x, float y, int width, int height) {
 		super(handler, x, y, Tile.TILE_WIDTH, Tile.TILE_HEIGHT, isDestructible, canMove);
 	}
 
@@ -37,7 +34,7 @@ public class BoulderEntity extends Items{
 	@Override
 	public void render(Graphics g) {
 		// TODO Auto-generated method stub
-		g.drawImage(Assets.boulder,(int) (x - handler.getGameCamera().getxOffset()),
+		g.drawImage(Assets.diamonds,(int) (x - handler.getGameCamera().getxOffset()),
 				(int) (y - handler.getGameCamera().getyOffset()), width, height, null); 
 	}
 

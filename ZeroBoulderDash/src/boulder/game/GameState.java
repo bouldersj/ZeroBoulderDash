@@ -15,11 +15,11 @@ public class GameState extends State {
 	
 	//private Player player ;
 	private World world ;
-	
+		
 	 public GameState(Handler handler) {
-		 super(handler);
+		 super(handler); 
 		 //init level
-		 world = new World (handler, "res/worlds/level1.txt");
+		 world = new World (handler, ("res/worlds/level1.txt"));
 		 handler.setWorld(world); 
 		 handler.getGameCamera().move(100, 200);
 		// player = new Player (handler, handler.getWorld().getSpawnX() ,handler.getWorld().getSpawnX()) ; 
@@ -43,6 +43,8 @@ public class GameState extends State {
 		//player.render(g);
 
 	}
+
+
 	
 
 }

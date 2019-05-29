@@ -4,6 +4,8 @@
 package boulder.entity;
 
 
+
+
 import boulder.game.Handler;
 import boulder.model.Tile;
 
@@ -17,16 +19,25 @@ public static final float DEFAULT_SPEED = 4.0f;
 	
 	public static final int DEFAULT_WIDTH = 32, 
 							DEFAULT_HEIGHT = 32 ; 
-	
+
 	protected float speed ; 
 	
 	protected float yMove ; 
 	
-	public Items(Handler handler, float x, float y, int width, int height) {
+	private boolean destructible;
+    private boolean falling;
+	
+	public Items(Handler handler, float x, float y, int width, int height, boolean destructible, boolean falling) {
 		super(handler, x, y, width, height);
 		// TODO Auto-generated constructor stub
+		this.destructible = destructible ;
+		this.falling = falling;
+		
+		falling = false ;
+		destructible = false ; 
 		speed = DEFAULT_SPEED ; 
 		yMove = 0 ; 
+		
 	}
 		
 		public void move () {
@@ -79,6 +90,35 @@ public static final float DEFAULT_SPEED = 4.0f;
 		 */
 		public void setyMove(float yMove) {
 			this.yMove = yMove;
+		}
+
+		/**
+		 * @return the destructible
+		 */
+		public boolean isDestructible() {
+			return destructible;
+		}
+
+		/**
+		 * @param destructible the destructible to set
+		 */
+		public void setDestructible(boolean destructible) {
+			this.destructible = destructible;
+		}
+
+
+		/**
+		 * @return the falling
+		 */
+		public boolean isFalling() {
+			return falling;
+		}
+
+		/**
+		 * @param falling the falling to set
+		 */
+		public void setFalling(boolean falling) {
+			this.falling = falling;
 		}
 
 

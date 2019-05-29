@@ -36,17 +36,14 @@ public abstract class  Entity {
 	public boolean checkEntityCollinsion (float xOffset, float yOffset)	{
 		for (Entity e : handler.getWorld().getEntityManager().getEntities()) {
 			
-			if (e.equals(this)) {
+			if (e.equals(this)) 
 				continue ; 
-			}
-			
-			if (e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset, yOffset))) {
+			if (e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset, yOffset))) 
 				return true ;
-			}
 			
 		}
-		
 		return false ;
+
 	}
 	
 	public Rectangle getCollisionBounds (float xOffset, float yOffset)	{

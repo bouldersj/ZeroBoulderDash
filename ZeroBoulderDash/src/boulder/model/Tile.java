@@ -44,6 +44,7 @@ public class Tile {
 		tiles[id] = this ; 
 		
 	}
+	
 	public void tick() {
 		
 	}
@@ -55,6 +56,7 @@ public class Tile {
 	public boolean isSolid ()	{
 		return false ; 
 	}
+
 	public int getId() {
 		return id ; 
 	}

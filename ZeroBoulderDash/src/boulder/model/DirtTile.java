@@ -1,12 +1,12 @@
 /**
  * 
- */
+ *
 package boulder.model;
 
 /**
  * @author liabe
  *
- */
+ *
 public class DirtTile extends Tile {
 
 	
@@ -24,3 +24,4 @@ public class DirtTile extends Tile {
 	
 
 }
+*/

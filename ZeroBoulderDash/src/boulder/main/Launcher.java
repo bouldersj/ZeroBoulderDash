@@ -3,7 +3,6 @@
  */
 package boulder.main;
 
-import boulder.game.Game;
 import boulder.game.MenuState;
 
 /**

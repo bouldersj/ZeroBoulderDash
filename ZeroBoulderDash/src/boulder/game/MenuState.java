@@ -17,6 +17,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import boulder.model.World;
+
 
 
 /**
@@ -31,7 +33,9 @@ public class MenuState extends State{
 	protected JLabel lab;
 	protected JButton b1,b2;
 	protected JComboBox liste;
-	protected String[] lvl = {"Choisire le Niveau","Niveau 1", "Niveau 2", "Niveau 3", "Niveau 4", "Niveau 5"};
+	protected String[] lvl = {"choose the level","level 1", "level 2", "level 3", "level 4", "level 5"};
+	private World world ;
+
 	
 
 	public MenuState (Handler handler) {
@@ -97,28 +101,13 @@ public class MenuState extends State{
 		b1.setBounds(550, 240, 150, 40);
 		b1.addActionListener(new ActionListener() { public void actionPerformed (ActionEvent e) {
 			
+			
 			Game game = new Game("boulder dash", 800, 600);
-			
-			
 			game.start();
 			f.setVisible(false);
 			
 			
 		}});
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		b2.setBackground(Color.lightGray);
 		b2.setFont(fontEntered);

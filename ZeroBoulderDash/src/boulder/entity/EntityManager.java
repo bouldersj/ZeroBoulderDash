@@ -4,11 +4,11 @@
 package boulder.entity;
 
 import java.awt.Graphics;
+
 import java.util.ArrayList;
 
 import boulder.game.Handler;
-import boulder.model.BoulderEntity;
-import boulder.model.BoulderTile;
+//import boulder.model.BoulderTile;
 import boulder.model.Player;
 
 /**
@@ -19,7 +19,6 @@ public class EntityManager {
 	
 	private Handler handler ; 
 	private Player player ; 
-	
 	private ArrayList<Entity> entities ; 
 	
 	public EntityManager (Handler handler, Player player) {
@@ -35,7 +34,7 @@ public class EntityManager {
 			Entity e = entities.get(i);
 			e.tick();
 		}
-		
+
 	}
 	
 	public void render (Graphics g)	{

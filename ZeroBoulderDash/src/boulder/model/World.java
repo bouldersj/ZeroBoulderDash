@@ -33,12 +33,18 @@ public class World {
 		entityManager = new EntityManager(handler, new Player (handler,0,0) );
 		
 		entityManager.addEntity(new BoulderEntity(handler, 100, 200, width, height));
+		entityManager.addEntity(new DiamondEntity(handler, 100, 250, width, height));
+		entityManager.addEntity(new DirtEntity(handler, 100, 300, width, height));
+		
 
 		
 		loadWorld(path);
 		entityManager.getPlayer().setX(spawnX);
 		entityManager.getPlayer().setY(spawnY);
 		
+		/*
+		 * 
+		 */
 	
 	}
 	
@@ -99,7 +105,7 @@ public class World {
 		
 		for (int y =0 ; y < height ; y++ ) {
 			for (int x = 0 ; x < width ; x++) {
-				tiles [x] [y] = Utils.praseInt(tokens [(x + y * width) + 4]); // 3 like 3 Tiles
+				tiles [x] [y] = Utils.praseInt(tokens [(x + y * width) + 4]); 
 			}
 		}
 

@@ -3,7 +3,7 @@
  */
 package boulder.entity;
 
-import java.awt.Graphics;
+
 import java.awt.Rectangle;
 
 import boulder.game.Handler;
@@ -12,12 +12,13 @@ import boulder.game.Handler;
  * @author liabe
  *
  */
-public abstract class  Entity {
+public abstract class  Entity implements TickRender {
 
 	protected Handler handler ; 
 	protected float x, y;
 	protected int width, height;
 	protected Rectangle bounds ; 
+	
 	
 	public Entity (Handler handler ,float x , float y, int width, int height) {
 		this.handler = handler ; 
@@ -29,9 +30,7 @@ public abstract class  Entity {
 		bounds = new Rectangle(0,0, width, height);
 	}
 
-	public abstract void tick ();
 	
-	public abstract void render (Graphics g);
 	
 	public boolean checkEntityCollinsion (float xOffset, float yOffset)	{
 		for (Entity e : handler.getWorld().getEntityManager().getEntities()) {
@@ -40,7 +39,6 @@ public abstract class  Entity {
 				continue ; 
 			if (e.getCollisionBounds(0f, 0f).intersects(getCollisionBounds(xOffset, yOffset))) 
 				return true ;
-			
 		}
 		return false ;
 

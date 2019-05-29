@@ -13,16 +13,13 @@ import boulder.game.Handler;
  *
  */
 public class DiamondEntity extends Items{
-	private static boolean isDestructible;
-	private static boolean canMove;
-
-	static {
-		isDestructible = false;
-		canMove = true;
-	}
-
+	
 	public DiamondEntity(Handler handler, float x, float y, int width, int height) {
-		super(handler, x, y, Tile.TILE_WIDTH, Tile.TILE_HEIGHT, isDestructible, canMove);
+		super(handler, x, y, Tile.TILE_WIDTH, Tile.TILE_HEIGHT);
+		bounds.x = 0; 
+		bounds.y = 0 ;
+		bounds.width = 32 ; 
+		bounds.height = 32 ; 
 	}
 
 	@Override

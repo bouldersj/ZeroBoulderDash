@@ -26,7 +26,7 @@ public abstract class StaticItem extends Entity  {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void remove () {
+	/*public void remove () {
 		
 		
 		if (!checkEntityCollinsion(xMove, 0f)) {
@@ -40,7 +40,7 @@ public abstract class StaticItem extends Entity  {
 		
 		
 			
-	}
+	}*/
 	
 
 	/**

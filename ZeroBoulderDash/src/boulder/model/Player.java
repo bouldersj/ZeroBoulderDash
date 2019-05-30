@@ -79,6 +79,8 @@ public class Player extends Creature {
 		if (handler.getKeyManager().up) {
 			ca.x = cb.x + cb.width / 2 - arSize /2 ; 
 			ca.y = cb.y  - arSize ; 
+			 
+			
 
 		} else if (handler.getKeyManager().down) {
 			ca.x = cb.x + cb.width / 2 - arSize /2 ; 
@@ -87,10 +89,12 @@ public class Player extends Creature {
 		}else if (handler.getKeyManager().left) {
 			ca.x = cb.x  - arSize; 
 			ca.y = cb.y  - cb.height / 2 - arSize /2  ; 
+		
 
 		}else if (handler.getKeyManager().right) {
 			ca.x = cb.x  + cb.width; 
 			ca.y = cb.y  + cb.height / 2 - arSize /2  ;  
+			
 
 		}else {
 			return ; 

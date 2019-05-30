@@ -6,6 +6,8 @@ package boulder.entity;
 import java.awt.Graphics;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Iterator;
 
 import boulder.game.Handler;
 
@@ -20,7 +22,7 @@ public class EntityManager {
 	private Handler handler ; 
 	private Player player ; 
 	private ArrayList<Entity> entities ; 
-/*	private Comparator<Entity> renderSorter = new Comparator<Entity>() {
+	/*private Comparator<Entity> renderSorter = new Comparator<Entity>() {
 
 		@Override
 		public int compare(Entity a, Entity b) {
@@ -41,16 +43,16 @@ public class EntityManager {
 	}
 	
 	public void tick () {
-		
-		for  (int i = 0; i < entities.size(); i++) {
-			Entity e = entities.get(i);
+		Iterator<Entity> it = entities.iterator()	;
+	 while  (it.hasNext()) {
+			Entity e = it.next();
 			e.tick(); 
 			if (!e.isActive()) {
-				entities.remove(e);
+				it.remove();
 			}
 		}
 		
-		//entities.sort(renderSorter);
+	//entities.sort(renderSorter);
 
 	}
 	

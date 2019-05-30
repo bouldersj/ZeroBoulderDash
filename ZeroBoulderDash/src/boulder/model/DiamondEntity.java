@@ -2,17 +2,16 @@
  * 
  */
 package boulder.model;
-
 import java.awt.Graphics;
 
-import boulder.entity.Items;
+import boulder.entity.StaticItem;
 import boulder.game.Handler;
 
 /**
  * @author liabe
  *
  */
-public class DiamondEntity extends Items{
+public class DiamondEntity extends StaticItem{
 	
 	public DiamondEntity(Handler handler, float x, float y, int width, int height) {
 		super(handler, x, y, Tile.TILE_WIDTH, Tile.TILE_HEIGHT);
@@ -30,7 +29,8 @@ public class DiamondEntity extends Items{
 	
 	@Override
 	public void die() {
-		// TODO Auto-generated method stub
+		
+		
 		
 	}
 

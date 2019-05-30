@@ -6,6 +6,8 @@ package boulder.model;
 import java.awt.Graphics;
 
 import boulder.entity.EntityManager;
+import boulder.entity.ItemManager;
+import boulder.entity.Items;
 import boulder.game.Handler;
 
 /**
@@ -24,6 +26,11 @@ public class World {
 	 * Entities
 	 */
 	private EntityManager entityManager ; 
+	/*
+	 * ITems 
+	 */
+	private ItemManager itemManager ; 
+	
 	
 	public World (Handler  handler, String path) {
 		this.handler = handler ; 
@@ -32,8 +39,10 @@ public class World {
 		 */
 		entityManager = new EntityManager(handler, new Player (handler,0,0) );
 		
-		entityManager.addEntity(new BoulderEntity(handler, 100, 200, width, height));
-		entityManager.addEntity(new DiamondEntity(handler, 100, 250, width, height));
+		//testtestsetst
+		itemManager = new ItemManager(handler);
+		
+	    getItemManager().addItem(Items.rockItem.createNew(300,300 ));
 		entityManager.addEntity(new DirtEntity(handler, 100, 300, width, height));
 		entityManager.addEntity(new DirtEntity(handler, 100, 300 + 32, width, height));
 		entityManager.addEntity(new DirtEntity(handler, 100, 300 + 32 *2, width, height));
@@ -41,6 +50,13 @@ public class World {
 		entityManager.addEntity(new DirtEntity(handler, 100, 300 + 32 *4 , width, height));		
 		entityManager.addEntity(new DirtEntity(handler, 100, 300 + 32 * 5 , width, height));
 		entityManager.addEntity(new DirtEntity(handler, 100, 300 + 32 * 6 , width, height));
+		entityManager.addEntity(new DirtEntity(handler, 200, 300, width, height));
+		entityManager.addEntity(new DirtEntity(handler, 200, 300 + 32, width, height));
+		entityManager.addEntity(new DirtEntity(handler, 200, 300 + 32 *2, width, height));
+		entityManager.addEntity(new DirtEntity(handler, 200, 300 + 32 * 3 , width, height));
+		entityManager.addEntity(new DirtEntity(handler, 200, 300 + 32 *4 , width, height));		
+		entityManager.addEntity(new DirtEntity(handler, 200, 300 + 32 * 5 , width, height));
+		entityManager.addEntity(new DirtEntity(handler, 200, 300 + 32 * 6 , width, height));
 
 		
 
@@ -57,6 +73,10 @@ public class World {
 	
 	
 	public void tick ()	{
+		
+		//testetset
+		itemManager.tick();
+		
 		entityManager.tick();
 	}
 	
@@ -72,8 +92,14 @@ public class World {
 						(int) (y * Tile.TILE_HEIGHT - handler.getGameCamera().getyOffset()));
 				
 			}
-		}//Entities 
-		
+		}
+		/**
+		 * Items tests
+		 */
+		itemManager.render(g);
+		/**
+		 *Entities
+		 */
 		entityManager.render(g);
 		
 	} 
@@ -165,6 +191,40 @@ public class World {
 		public EntityManager getEntityManager() {
 			return entityManager;
 		}
+
+
+		/**
+		 * @return the handler
+		 */
+		public Handler getHandler() {
+			return handler;
+		}
+
+
+		/**
+		 * @param handler the handler to set
+		 */
+		public void setHandler(Handler handler) {
+			this.handler = handler;
+		}
+
+
+		/**
+		 * @return the itemManager
+		 */
+		public ItemManager getItemManager() {
+			return itemManager;
+		}
+
+
+		/**
+		 * @param itemManager the itemManager to set
+		 */
+		public void setItemManager(ItemManager itemManager) {
+			this.itemManager = itemManager;
+		}
+		
+		
 		
 
 

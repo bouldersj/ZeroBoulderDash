@@ -5,7 +5,7 @@ package boulder.model;
 
 import java.awt.Graphics;
 
-import boulder.entity.Items;
+import boulder.entity.StaticItem;
 import boulder.game.Handler;
 
 /**
@@ -14,7 +14,7 @@ import boulder.game.Handler;
  */
 
 //////testing 
-public class BoulderEntity extends Items{
+public class BoulderEntity extends StaticItem {
 
 
 	public BoulderEntity(Handler handler, float x, float y, int width, int height) {

@@ -1,4 +1,4 @@
-package boulder.ChangeLvl;
+package boulder.main;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,10 +9,7 @@ public class Connect {
 
 	private Connection myConn;
 	
-	public void main(String[] args) {
-		
-	}
-	
+
 	public String lvl1() throws SQLException {
 		String str = "";
 		myConn = DriverManager.getConnection("jdbc:mysql://localhost/projet?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "");
